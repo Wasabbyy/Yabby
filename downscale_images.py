@@ -19,14 +19,21 @@ HEIC_EXTS = {".heic", ".HEIC"}
 def downscale_pil(path: str) -> bool:
     try:
         with Image.open(path) as im:
-            # Convert to RGB if necessary (e.g. RGBA, P)
-            if im.mode in ("RGBA", "P"):
+            # Preserve transparency for PNGs (RGBA, P); only convert to RGB for JPEG
+            is_png = path.lower().endswith(".png")
+            if not is_png and im.mode in ("RGBA", "P"):
                 im = im.convert("RGB")
+            elif is_png and im.mode == "P":
+                im = im.convert("RGBA")  # Keep transparency for palette PNGs
+            elif is_png and im.mode != "RGBA":
+                im = im.convert("RGBA")  # Ensure alpha for PNG
             im.thumbnail(MAX_SIZE, Image.Resampling.LANCZOS)
             out_path = path
-            if path.lower().endswith(".png"):
+            if is_png:
                 im.save(out_path, "PNG", optimize=True)
             else:
+                if im.mode == "RGBA":
+                    im = im.convert("RGB")
                 im.save(out_path, "JPEG", quality=88, optimize=True)
             return True
     except Exception as e:

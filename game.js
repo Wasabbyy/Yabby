@@ -42,10 +42,15 @@
     const h = pathway.offsetHeight;
     const margin = 40;
     const n = dates.length;
-    const rows = Math.ceil(n / 2);
+    var pathCount = n;
+    if (n === 11) pathCount = 10;
+    const rows = Math.ceil(pathCount / 2);
     const leftX = w * 0.15;
     const rightX = w * 0.85;
     return dates.map(function (_, i) {
+      if (i >= pathCount) {
+        return { x: w / 2, y: h - margin };
+      }
       const row = Math.floor(i / 2);
       const x = i % 2 === 0 ? leftX : rightX;
       const y = rows <= 1 ? h / 2 : margin + (h - 2 * margin) * (row + 0.5) / rows;
@@ -64,14 +69,16 @@
 
     const positions = getDoorPositions();
     const n = dates.length;
-    const rows = Math.ceil(n / 2);
+    var pathCount = n;
+    if (n === 11) pathCount = 10;
+    const rows = Math.ceil(pathCount / 2);
     const pathOrder = [];
     for (var r = 0; r < rows; r++) {
       if (r % 2 === 0) {
         pathOrder.push(r * 2);
-        if (r * 2 + 1 < n) pathOrder.push(r * 2 + 1);
+        if (r * 2 + 1 < pathCount) pathOrder.push(r * 2 + 1);
       } else {
-        if (r * 2 + 1 < n) pathOrder.push(r * 2 + 1);
+        if (r * 2 + 1 < pathCount) pathOrder.push(r * 2 + 1);
         pathOrder.push(r * 2);
       }
     }
@@ -87,7 +94,8 @@
 
     dates.forEach(function (d, i) {
       const pos = positions[i];
-      const isLeft = i % 2 === 0;
+      var isLeft = i % 2 === 0;
+      if (n === 11 && i === 10) isLeft = false;
       const wrapper = document.createElement('div');
       wrapper.className = 'door-wrapper door-' + (isLeft ? 'left' : 'right') + (visited.has(d.id) ? ' visited' : '');
       wrapper.dataset.id = d.id;
