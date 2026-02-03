@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Journey</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- START SCREEN -->
+  <div id="start-screen">
+    <div class="start-content">
+      <h1 class="title">Our Journey</h1>
+      <div class="couple-photo-frame">
+        <img id="start-photo" src="assets/start-photo.jpg" alt="Us">
+        <span class="photo-placeholder">Your photo here</span>
+      </div>
+      <p class="subtitle">Walk down memory lane</p>
+      <button id="start-btn" class="start-btn">Begin</button>
+    </div>
+    <div class="floating-hearts" aria-hidden="true"></div>
+  </div>
+
+  <!-- PATHWAY / GAME SCREEN -->
+  <div id="game-screen" class="hidden">
+    <div class="pathway-container">
+      <div class="pathway">
+        <div class="path-bg"></div>
+        <!-- Character -->
+        <div id="character" class="character">
+          <img class="character-sprite" src="assets/character.png" alt="Character">
+        </div>
+        <!-- Date doors (injected by JS) -->
+        <div id="doors-container"></div>
+      </div>
+    </div>
+    <div class="game-ui">
+      <button id="back-btn" class="back-btn">← Start</button>
+    </div>
+  </div>
+
+  <!-- MEMORY MODAL (when you open a door) -->
+  <div id="memory-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content" id="memory-modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Back">Back</button>
+      <div class="memory-date"></div>
+      <div class="memory-slides">
+        <button type="button" class="memory-arrow memory-prev" id="memory-prev" aria-label="Previous">‹</button>
+        <div class="memory-photo-wrap">
+          <img class="memory-photo" src="" alt="Memory">
+        </div>
+        <button type="button" class="memory-arrow memory-next" id="memory-next" aria-label="Next">›</button>
+      </div>
+      <p class="memory-text"></p>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
