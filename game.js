@@ -33,14 +33,19 @@
     else if (screen === 'memory') memoryModal.classList.remove('hidden');
   }
 
-  var DOOR_IMG_HALF = 70;
-  var LEFT_DOOR_OFFSET = 140 + 12 + 70;
+  function getDoorLayoutScale(w) {
+    if (w <= 0) return { doorHalf: 70, leftOffset: 222 };
+    if (w < 400) return { doorHalf: 36, leftOffset: 114 };
+    if (w < 500) return { doorHalf: 50, leftOffset: 158 };
+    var scale = Math.min(1, w / 720);
+    return { doorHalf: Math.round(70 * scale), leftOffset: Math.round(222 * scale) };
+  }
 
   function getDoorPositions() {
     if (!pathway || !dates.length) return [];
     const w = pathway.offsetWidth;
     const h = pathway.offsetHeight;
-    const margin = 40;
+    const margin = Math.max(20, Math.min(40, w * 0.05));
     const n = dates.length;
     var pathCount = n;
     if (n === 11) pathCount = 10;
@@ -92,18 +97,19 @@
     pathEl.innerHTML = '<polyline class="path-pink" fill="none" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" points="' + pathPoints + '"/>';
     doorsContainer.appendChild(pathEl);
 
+    var layout = getDoorLayoutScale(pathway.offsetWidth);
     dates.forEach(function (d, i) {
       const pos = positions[i];
       var isLeft = i % 2 === 0;
       if (n === 11 && i === 10) isLeft = false;
       const wrapper = document.createElement('div');
-      wrapper.className = 'door-wrapper door-' + (isLeft ? 'left' : 'right') + (visited.has(d.id) ? ' visited' : '');
+      wrapper.className = 'door-wrapper door-' + (isLeft ? 'left' : 'right') + (visited.has(d.id) ? ' visited' : '') + (pathway.offsetWidth < 500 ? ' door-compact' : '');
       wrapper.dataset.id = d.id;
       wrapper.dataset.index = String(i);
       if (isLeft) {
-        wrapper.style.left = (pos.x - LEFT_DOOR_OFFSET) + 'px';
+        wrapper.style.left = (pos.x - layout.leftOffset) + 'px';
       } else {
-        wrapper.style.left = (pos.x - DOOR_IMG_HALF) + 'px';
+        wrapper.style.left = (pos.x - layout.doorHalf) + 'px';
       }
       wrapper.style.top = pos.y + 'px';
 

@@ -6,7 +6,7 @@
 const JOURNEY_DATA = {
   // Photo shown on the start screen (you + girlfriend)
   // Put the file in assets/start-photo.jpg (or .png)
-  startPhoto: 'assets/start-photo.jpg',
+  startPhoto: 'assets/intro.JPG',
 
   // List your special dates in order (oldest first = top, newest = bottom; snake path)
   // Each door uses the same presentation layout (arrows, full-page, captions)
