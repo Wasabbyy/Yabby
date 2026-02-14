@@ -59,9 +59,10 @@ const JOURNEY_DATA = {
     },
     {
       id: 'andrejovo-oslava',
-      date: 'Andrejovo oslava',
+      date: 'Eli oslava',
       photos: [
-        { src: 'assets/andrej_oslava.jpg', text: 'idk xd ' }
+        { src: 'assets/andrej_oslava.jpg', text: 'idk xd ' },
+        { src: 'assets/andrej2.JPG', text: 'idk xd ' }
       ]
     },
     {
@@ -90,12 +91,14 @@ const JOURNEY_DATA = {
       id: 'yabbinka-20',
       date: 'Yabbinka 20',
       photos: [
-        { src: 'assets/andrej_oslava.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
         { src: 'assets/oslava.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it. ' },
         { src: 'assets/oslava1.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
         { src: 'assets/oslava2.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
-        { src: 'assets/oslava3.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' }
-      ]
+        { src: 'assets/oslava3.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
+        { src: 'assets/oslava4.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
+        { src: 'assets/oslava5.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
+        { src: 'assets/oslava6.jpg', text: 'Your 20th birthday and first birthday party together. It was soo much fun. It started with cake and gifts at my place and then we went to your birthday party with all your cool friends. I met some great new people there and talked with the ones I already knew I enjoyed it sooo much and I was so happy when I saw how happy and how much you enjoyed it.' },
+      ] 
     },
     {
       id: 'just-us-being-goofy',
